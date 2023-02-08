@@ -119,3 +119,51 @@ print(km.out)
 km.clusters <-km.out$cluster
 rownames(iris_data_scale)<-paste(iris$Species, 1:dim(iris)[1],seq="_")
 fviz_cluster(list(data=iris_data_scale,cluster =km.clusters))
+
+#dataframes
+
+Employees = data.frame(Name=c("Anastasia S","Dima R","Katherine S", "JAMES A","LAURA MARTIN"),
+                       Gender=c("M","M","F","F","M"),
+                       Age=c(23,22,25,26,32),
+                       Designation=c("Clerk","Manager","Exective","CEO","ASSISTANT"),
+                       SSN=c("123-34-2346","123-44-779","556-24-433","123-98-987","679-77-576")
+)
+print("Details of the employees:")                      
+print(Employees)
+# Employees[c(3,5),c(2,3)]
+table(Employees$Gender)
+install.package('dplyr')
+library(dplyr)
+Employees %>%
+  group_by(Age) %>%
+  summarize(Freq=n())
+hist(Employees$Age)
+
+#palindrome
+
+{
+  n = as.integer(readline(prompt = "Enter a number :"))
+  
+  rev = 0
+  num = n
+  
+  while (n > 0) {
+    r = n %% 10
+    rev = rev * 10 + r
+    n = n %/% 10
+  }
+  
+  if (rev == num)
+  {
+    print(paste("Number is palindrome :", rev))
+  }
+  else{
+    print(paste("Number is not palindrome :", rev))
+  }
+}
+
+#factorial
+
+answer1 <- factorial(c(0, 1, 2, 3, 4)) 
+  
+print(answer1) 
